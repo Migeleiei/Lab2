@@ -5,6 +5,7 @@ package Lab1;
  * @Author pree.t
  */
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
@@ -53,9 +54,36 @@ public class Main  {
             sc.nextLine();
         }  // end while loop
         Collections.sort(myUni);
+        String csvFilePath = "QS-World-University-Rankings-2017_updated.csv";
+        try (FileWriter fileWriter = new FileWriter(csvFilePath)) {
+
+            fileWriter.write("Year,Rank,University Name,Score,Link,Country,City,Logo\n");
+
+
+
+
+            for (UniData uni : myUni) {
+
+                fileWriter.write(uni.getYear() + "," + uni.getRank() + "," + uni.getUniName() + "," + uni.getScore() +
+
+                        "," + uni.getLink() + "," + uni.getCountry() + "," + uni.getCity() + "," + uni.getLogo() + "\n");
+
+            }
+
+
+
+
+            System.out.println("Data saved to " + csvFilePath);
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
            for(UniData uni: myUni){
             System.out.println(uni.toString());
            }
+        
 
         // Line 14"Nanyang Technological University, Singapore (NTU) Exception in thread "main" java.util.InputMismatchException
         sc.close();  //closes the scanner  
