@@ -3,7 +3,8 @@ package Lab1;
  * Lab 1 Solution
  * @author pree.t
  */
-public class UniData {
+public class UniData implements Comparable<UniData>{
+    
     
     String year, score, uniName, link, city, country, logo, rank;
 
@@ -91,5 +92,10 @@ public class UniData {
         + this.link + ", " + this.country + ", " + this.city + ", " + this.logo + "]";
 
     }// override method toString
+
+    @Override
+    public int compareTo(UniData o) {
+        return this.uniName.compareTo(o.uniName);
+    }
     
 }// end class UniData

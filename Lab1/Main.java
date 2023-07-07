@@ -6,10 +6,12 @@ package Lab1;
  */
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 import java.util.Vector;
 
-public class Main {
+public class Main  {
     // We need to replace comma "," in the csv with "||"
 
     public static void main(String args[]) throws IOException {
@@ -50,6 +52,7 @@ public class Main {
             }
             sc.nextLine();
         }  // end while loop
+        Collections.sort(myUni);
            for(UniData uni: myUni){
             System.out.println(uni.toString());
            }
